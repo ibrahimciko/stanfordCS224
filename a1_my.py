@@ -1,5 +1,4 @@
 # All Import Statements Defined Here
-# Note: Do not add to this list.
 # ----------------
 import sys
 
@@ -26,8 +25,6 @@ END_TOKEN = '<END>'
 
 np.random.seed(0)
 random.seed(0)
-
-
 # ----------------
 
 def read_corpus(category="crude"):
@@ -41,10 +38,9 @@ def read_corpus(category="crude"):
     return [[START_TOKEN] + [w.lower() for w in list(reuters.words(f))] + [END_TOKEN] for f in files]
 
 
-reuters_corpus = read_corpus()
+#reuters_corpus = read_corpus()
 
 
-# implement
 def distinct_words(corpus):
     """ Determine a list of distinct words for the corpus.
         Params:
@@ -90,8 +86,6 @@ print("-" * 80)
 print("Passed All Tests!")
 print("-" * 80)
 
-test_distinct = distinct_words(reuters_corpus)
-
 def compute_co_occurrence_matrix(corpus, window_size=4):
     """ Compute co-occurrence matrix for the given corpus and window_size (default of 4).
     
@@ -133,7 +127,6 @@ def compute_co_occurrence_matrix(corpus, window_size=4):
                 #    print("One Update")
 
     return M, word2Ind
-
 
 # ---------------------
 # Run this sanity check
@@ -195,9 +188,6 @@ for w1 in word2Ind_ans.keys():
 print("-" * 80)
 print("Passed All Tests!")
 print("-" * 80)
-
-#test again with actual corpus
-compute_co_occurrence_matrix(reuters_corpus,4)
 
 def reduce_to_k_dim(M, k=2):
     """ Reduce a co-occurence count matrix of dimensionality (num_corpus_words, num_corpus_words)
